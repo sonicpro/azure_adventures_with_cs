@@ -18,7 +18,7 @@ public class Function1
         _logger = logger;
     }
 
-    [Function("Function1")]
+    [Function(nameof(Function1))]
     public IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequest req)
     {
         _logger.LogInformation("C# HTTP trigger function processed a request.");
