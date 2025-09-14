@@ -1,6 +1,9 @@
-﻿Microsoft default Durable function demo can be triggered by the folloging url: http://defaultDomain/api/Function2_HttpStart
+﻿Publishing DurableFunction project breaks the Function App in Azure. Every function invocation through HTTP trigger causes
+HTTP 504 "Function host is not running." error.
 
-"Long Runing task" durable function monitoring demo can be triggered by the following URL:
+Microsoft default Durable function demo can be triggered by the folloging url: http://defaultDomain/api/Function2_HttpStart
+
+"Long running task" durable function's monitoring demo can be triggered by the following URL:
 http://defaultDomain/api/Function3_HttpStart
 
 Make sure your App service plan is on Y1 pricing. That is the free plan for Azure Function hosting.
