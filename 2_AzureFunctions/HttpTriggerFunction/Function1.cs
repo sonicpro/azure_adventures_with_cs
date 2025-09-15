@@ -19,14 +19,14 @@ public class Function1
     }
 
     [Function(nameof(Function1))]
-    public IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequest req)
+    public IActionResult Run([HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequest req)
     {
         _logger.LogInformation("C# HTTP trigger function processed a request.");
         return new OkObjectResult("Welcome to Azure Functions!");
     }
 
     [Function("CreatingResponseExplicitly")]
-    public HttpResponseData CreatingResponseExplicitly([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequestData req)
+    public HttpResponseData CreatingResponseExplicitly([HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequestData req)
     {
         var response = req.CreateResponse(HttpStatusCode.OK);
         response.Headers.Add("Content-Type", "application/json");
@@ -40,7 +40,7 @@ public class Function1
     }
 
     [Function("ReadingFromRequest")]
-    public IActionResult ReadingFromRequest([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route="ReadingFromRequest/{name}")] HttpRequest req, string name)
+    public IActionResult ReadingFromRequest([HttpTrigger(AuthorizationLevel.Function, "get", "post", Route="ReadingFromRequest/{name}")] HttpRequest req, string name)
     {
         _logger.LogInformation("C# HTTP trigger function processed a request.");
         _logger.LogInformation(name);
